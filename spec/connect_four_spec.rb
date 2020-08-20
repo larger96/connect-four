@@ -96,4 +96,26 @@ describe ConnectFour do
       expect(game.game_won).to be_truthy
     end
   end
+
+  describe '#diagonal_winner' do
+    it "checks for winner on primary diagonal" do
+      game = ConnectFour.new
+      game.board[5][2] = 'O'
+      game.board[4][3] = 'O'
+      game.board[3][4] = 'O'
+      game.board[2][5] = 'O'
+      game.diagonal_winner
+      expect(game.game_won).to be_truthy
+    end
+
+    it "checks for winner on secondary diagonal" do
+      game = ConnectFour.new
+      game.board[5][4] = 'X'
+      game.board[4][3] = 'X'
+      game.board[3][2] = 'X'
+      game.board[2][1] = 'X'
+      game.diagonal_winner
+      expect(game.game_won).to be_truthy
+    end
+  end
 end

@@ -26,7 +26,6 @@ class ConnectFour
   end
 
   def show_board
-    system 'clear'
     title
     puts "   0   1   2   3   4   5   6"
     puts ' -----------------------------'
@@ -50,6 +49,7 @@ class ConnectFour
     column = gets.chomp.to_i
     drop_disc(column)
     @turn += 1
+    system 'clear'
     show_board
     find_winner
   end
@@ -77,8 +77,8 @@ class ConnectFour
     vertical_winner
     diagonal_winner
     if @game_won == true
-      puts "Game Over"
-      puts "#{@winner} wins!"
+      puts " Game Over"
+      puts " #{@winner} wins!"
       exit
     else
       next_round
